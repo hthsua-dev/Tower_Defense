@@ -1,0 +1,95 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnkn8onxjc34r"]
+
+[ext_resource type="Texture2D" uid="uid://5fcgjf624a6x" path="res://graphics/ui/frame.png" id="1_pcwta"]
+[ext_resource type="Texture2D" uid="uid://ftkgg8wg17u" path="res://graphics/ui/tower thumbnails/basic.png" id="2_vttae"]
+[ext_resource type="FontFile" uid="uid://bqm53gushpubk" path="res://graphics/ui/Digitalt.otf" id="3_vttae"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ehn4m"]
+texture = ExtResource("1_pcwta")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q5iwx"]
+texture = ExtResource("1_pcwta")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[node name="TowerCard" type="Button"]
+clip_children = 1
+custom_minimum_size = Vector2(140, 180)
+offset_right = 140.0
+offset_bottom = 180.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_ehn4m")
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color(0.15294118, 0.15294118, 0.15294118, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_q5iwx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TowerPreview" type="Control" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="Panel/VBoxContainer/TowerPreview"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.91228896, 0.9122889, 0.91228884, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/TowerPreview"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vttae")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_vttae")
+theme_override_font_sizes/font_size = 24
+text = "Tower name"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_vttae")
+theme_override_font_sizes/font_size = 24
+text = "Tower cost"
+horizontal_alignment = 1

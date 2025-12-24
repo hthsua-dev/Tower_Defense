@@ -1,0 +1,156 @@
+[gd_scene load_steps=10 format=3 uid="uid://d1sgirqejsbpl"]
+
+[ext_resource type="FontFile" uid="uid://bqm53gushpubk" path="res://graphics/ui/Digitalt.otf" id="1_btrmv"]
+[ext_resource type="Texture2D" uid="uid://5fcgjf624a6x" path="res://graphics/ui/frame.png" id="2_0kbkb"]
+[ext_resource type="Texture2D" uid="uid://b3k0r3etcd08f" path="res://graphics/ui/dollar.png" id="3_0kbkb"]
+[ext_resource type="Texture2D" uid="uid://dtx2b4ht28ccs" path="res://graphics/ui/suit_hearts.png" id="3_ya7sb"]
+[ext_resource type="PackedScene" uid="uid://bnkn8onxjc34r" path="res://scenes/playerUI/tower_card.tscn" id="5_ya7sb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bynhw"]
+bg_color = Color(0.15294118, 0.15294118, 0.15294118, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.40784314)
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4fw5"]
+bg_color = Color(0.30692267, 0.3069227, 0.3069227, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.78431374)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ks4u4"]
+bg_color = Color(0.21176471, 0.21176471, 0.21176471, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.2)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_350gk"]
+texture = ExtResource("2_0kbkb")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -2.0
+offset_top = 5.0
+offset_right = 1277.0
+offset_bottom = 722.0
+
+[node name="Wave Button" type="Button" parent="Control"]
+custom_minimum_size = Vector2(240, 50)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.0
+offset_top = 20.0
+offset_right = 120.0
+offset_bottom = 92.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_btrmv")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_bynhw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g4fw5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ks4u4")
+text = "Start Wave"
+
+[node name="StatsContainer" type="VBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -167.0
+offset_top = -157.0
+offset_right = -12.0
+offset_bottom = -13.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="PanelContainer2" type="PanelContainer" parent="Control/StatsContainer"]
+self_modulate = Color(0.15294118, 0.15294118, 0.15294118, 1)
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/panel = SubResource("StyleBoxTexture_350gk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/StatsContainer/PanelContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/StatsContainer/PanelContainer2/HBoxContainer"]
+modulate = Color(1, 1, 0, 1)
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("3_0kbkb")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="Control/StatsContainer/PanelContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_btrmv")
+theme_override_font_sizes/font_size = 30
+text = "50"
+
+[node name="PanelContainer4" type="PanelContainer" parent="Control/StatsContainer"]
+self_modulate = Color(0.15294118, 0.15294118, 0.15294118, 1)
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/panel = SubResource("StyleBoxTexture_350gk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/StatsContainer/PanelContainer4"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/StatsContainer/PanelContainer4/HBoxContainer"]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("3_ya7sb")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="Control/StatsContainer/PanelContainer4/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_btrmv")
+theme_override_font_sizes/font_size = 30
+text = "50"
+
+[node name="TowerCard" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TowerCard"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -180.0
+offset_right = 140.0
+grow_vertical = 0
+
+[node name="TowerCard" parent="TowerCard/HBoxContainer" instance=ExtResource("5_ya7sb")]
+layout_mode = 2
